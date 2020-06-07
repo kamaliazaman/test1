@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Booking List</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <br/><br/>
+                <h3>
+                    <a href="/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Booking</a>
+                </h3>
+                <h2>Booking List</h2>
+                <div class="table-responsive">
+                    <table class="table" id="booking-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Mobile No</th>
+                                <th>Facility</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="booking : ${booking}">
+                                <td><a th:text="${booking.custName}" th:href="@{'/show/' + ${booking.id}}"></a></td>
+                                <td th:text="${booking.custAddress}"></td>
+                                <td th:text="${booking.mobileno}"></td>
+                                <td th:text="${booking.facility}"></td>
+                                <td th:text="${booking.hour}"></td>
+                                <td th:text="${booking.status}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

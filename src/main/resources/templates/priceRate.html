@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Show Booking</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <br/><br/>
+                <h3>
+                    <a href="/booking" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span> Booking</a>
+                </h3>
+                <h2>Booking Detail</h2>
+                <h5><b>Name</b></h5><h5 th:text="${booking.custName}"></h5>
+                <h5><b>Address</b></h5><h5 th:text="${booking.custAddress}"></h5>
+                <h5><b>Mobile No</b></h5><h5 th:text="${booking.mobileno}"></h5>
+                <h5><b>Status</b></h5><h5 th:text="${booking.status}"></h5>
+                <h5><b>Booking Facility</b></h5><h5 th:text="${booking.facility}"></h5>
+                
+                <form action="/delete">
+                    <input type="hidden" name="id" th:value="${booking.id}" />
+                    <h2><input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?');" />
+                        <a th:href="@{'/edit/' + ${booking.id}}" class="btn btn-warning">Edit</a></h2>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

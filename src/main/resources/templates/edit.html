@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Edit Booking</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <br/><br/>
+                <h3>
+                    <a href="/booking" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Booking</a>
+                </h3>
+                <h2>Edit Booking</h2>
+                <form action="/update">
+                    <div class="form-group">
+                        <label for="email">Customer Name:</label>
+                        <input type="text" class="form-control" name="custName" th:value="${booking.custName}" readonly=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Customer Address</label>
+                        <textarea class="form-control" name="custAddress" cols="60" rows="3" th:text="${booking.custAddress}" readonly=""></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Mobile No</label>
+                        <input type="text" class="form-control" name="mobileno" th:value="${booking.mobileno}" readonly=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Facility:</label>
+                        <input type="text" class="form-control" name="facility" th:value="${booking.facility}" readonly=""/>
+                    </div>
+                    <div class="form-group">
+					    <label for="email">Status:</label>
+					    <input type="text" class="form-control" name="status" th:value="${booking.status}"/>
+                    </div>
+                    <input type="hidden" name="id" th:value="${booking.id}" />
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
